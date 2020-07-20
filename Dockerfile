@@ -25,6 +25,9 @@ RUN apt-get install -y libssl-dev libcurl3-dev
 # Install additional dependencies for homgenemapping and utrrnaseq
 RUN apt-get install -y libboost-all-dev
 
+#Install Perl module
+RUN cpan File::Which && cpan Parallel::ForkManager
+
 # Build bam2wig dependencies (htslib, bfctools, samtools)
 RUN git clone https://github.com/samtools/htslib.git /root/htslib
 WORKDIR "/root/htslib"
